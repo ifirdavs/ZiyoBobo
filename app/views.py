@@ -30,6 +30,14 @@ class QabulView(View):
     def get(self, request):
         return render(request, 'qabul.html')
 
+class BizHaqimizdaView(View):
+    def get(self, request):
+        return render(request, 'biz-haqimizda.html')
+
+class FoydalanishView(View):
+    def get(self, request):
+        return render(request, 'foydalanish.html')
+
 # View to change the page language
 from urllib.parse import urlparse
 from django.conf import settings

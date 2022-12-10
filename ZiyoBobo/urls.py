@@ -32,9 +32,13 @@ urlpatterns = [
 
     path('mehnat', MehnatView.as_view()),
     path('qabul', QabulView.as_view()),
+    path('biz-haqimizda', BizHaqimizdaView.as_view()),
+    path('foydalanish-shartlari', FoydalanishView.as_view()),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
     *i18n_patterns(*urlpatterns, prefix_default_language=False),
     path("set_language/<str:language>/", set_language, name="set-language"),
-    ]
+]

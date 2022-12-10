@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +28,7 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -57,17 +59,22 @@
         </div>
         <h1>MODAL</h1>
         <ul class="mobile-links">
-          <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
-          <li><a href="/yangiliklar/">Yangiliklar</a></li>
-
-          <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+          {% if LANGUAGE_CODE != 'uz-latn' %}
+          <li><a href="/{{LANGUAGE_CODE}}/biz-haqimizda">{% trans 'Biz haqimizda' %}</a></li>
+          <li><a href="/{{LANGUAGE_CODE}}/yangiliklar">{% trans 'Yangiliklar' %}</a></li>
+          <li><a href="/{{LANGUAGE_CODE}}/foydalanish-shartlari">{% trans 'Foydalanish shartlari' %}</a></li>
+          {% else %}
+          <li><a href="biz-haqimizda">Biz haqimizda</a></li>
+          <li><a href="yangiliklar">Yangiliklar</a></li>
+          <li><a href="foydalanish-shartlari">Foydalanish shartlari</a></li>
+          {% endif %}
         </ul>
       </section>
       <section class="logo">
         <a href="/">
           <div class="brend">ziyobobom.uz</div>
         </a>
-        <h1>HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!</h1>
+        <h1>{% trans "HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!" %}</h1>
       </section>
       <section class="navbar">
         <div class="links">
@@ -77,10 +84,15 @@
             <li></li>
           </ul>
           <ul class="desktop-links">
-            <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
-            <li><a href="/yangiliklar/">Yangiliklar</a></li>
-
-            <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% if LANGUAGE_CODE != 'uz-latn' %}
+            <li><a href="/{{LANGUAGE_CODE}}/biz-haqimizda">{% trans 'Biz haqimizda' %}</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/yangiliklar">{% trans 'Yangiliklar' %}</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/foydalanish-shartlari">{% trans 'Foydalanish shartlari' %}</a></li>
+            {% else %}
+            <li><a href="biz-haqimizda">Biz haqimizda</a></li>
+            <li><a href="yangiliklar">Yangiliklar</a></li>
+            <li><a href="foydalanish-shartlari">Foydalanish shartlari</a></li>
+            {% endif %}
           </ul>
         </div>
         <div style="display: flex; gap:10px">
@@ -97,11 +109,12 @@
           </a>
           {% endif %}
         </div>
-        <select class="language" name="" id="">
-          <option value="">Uz</option>
-          <option value="">Ru</option>
-          <option value="">Eng</option>
-        </select>
+        <div class="language">
+          <a href="{% url 'set-language' 'uz-latn' %}">O'zbek</a>
+          <a href="{% url 'set-language' 'uz-cyrl' %}">Ўзбек</a>
+          <a href="{% url 'set-language' 'en' %}">English</a>
+          <a href="/set_language/ru/">Русский</a>
+        </div>
       </section>
       <section class="header" id="header">
         <div class="slider">

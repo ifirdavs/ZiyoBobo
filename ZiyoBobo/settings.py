@@ -117,11 +117,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+from django.utils.translation import gettext_lazy
 LANGUAGES = (
-    ('en', 'English'),
-    ('ru', 'Russian'),
-    ('uz-latn', "O'zbekcha"),
-    ('uz-cyrl', 'Узбекча'),
+    ('en', gettext_lazy('English')),
+    ('ru', gettext_lazy('Русский')),
+    ('uz-cyrl', gettext_lazy('Ўзбек')),
+    ('uz-latn', "O'zbek"),
 )
 
 LOCALE_PATHS = [

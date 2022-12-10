@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>biz haqimizda</title>
+    <title>Biz haqimizda</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
@@ -16,9 +19,9 @@
         </div>
         <h1>MODAL</h1>
         <ul class="mobile-links">
-            <li><a href="#">Biz haqimizda</a></li>
-            <li><a href="yangiliklar.html">Yangiliklar</a></li>
-            <li><a href="foydalanish.html">Foydalanish shartlari</a></li>
+          <li><a href="/{{LANGUAGE_CODE}}/biz-haqimizda">Biz haqimizda</a></li>
+          <li><a href="/{{LANGUAGE_CODE}}/yangiliklar">Yangiliklar</a></li>
+          <li><a href="/{{LANGUAGE_CODE}}/foydalanish-shartlari">Foydalanish shartlari</a></li>
           </ul>
       </section>
       <section class="logo">
